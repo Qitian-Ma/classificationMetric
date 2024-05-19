@@ -20,7 +20,7 @@ import torchvision
 import torchvision.transforms as transforms
 
 from torch.utils.data import DataLoader
-from torch.utils.tensorboard import SummaryWriter
+# from torch.utils.tensorboard import SummaryWriter
 
 from conf import settings
 from utils import get_network, get_training_dataloader, get_test_dataloader, WarmUpLR, \
@@ -168,8 +168,8 @@ if __name__ == '__main__':
 
     #since tensorboard can't overwrite old values
     #so the only way is to create a new tensorboard log
-    writer = SummaryWriter(log_dir=os.path.join(
-            settings.LOG_DIR, args.net, settings.TIME_NOW))
+    # writer = SummaryWriter(log_dir=os.path.join(
+    #         settings.LOG_DIR, args.net, settings.TIME_NOW))
     input_tensor = torch.Tensor(1, 3, 32, 32)
     if args.gpu:
         input_tensor = input_tensor.cuda()
