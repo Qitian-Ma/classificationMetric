@@ -45,10 +45,10 @@ def train(epoch):
         n_iter = (epoch - 1) * len(cifar100_training_loader) + batch_index + 1
 
         last_layer = list(net.children())[-1]
-        for name, para in last_layer.named_parameters():
-            if 'weight' in name:
+        # for name, para in last_layer.named_parameters():
+            # if 'weight' in name:
                 # writer.add_scalar('LastLayerGradients/grad_norm2_weights', para.grad.norm(), n_iter)
-            if 'bias' in name:
+            # if 'bias' in name:
                 # writer.add_scalar('LastLayerGradients/grad_norm2_bias', para.grad.norm(), n_iter)
 
         print('Training Epoch: {epoch} [{trained_samples}/{total_samples}]\tLoss: {:0.4f}\tLR: {:0.6f}'.format(
@@ -110,7 +110,7 @@ def eval_training(epoch=0, tb=True):
     print()
 
     #add informations to tensorboard
-    if tb:
+    # if tb:
         # writer.add_scalar('Test/Average loss', test_loss / len(cifar100_test_loader.dataset), epoch)
         # writer.add_scalar('Test/Accuracy', correct.float() / len(cifar100_test_loader.dataset), epoch)
 
